@@ -84,11 +84,11 @@
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
       var result = [];
-      for(var i = 0; i < collection.length; i++) {
-        if(test(collection[i]) === true) {
-          result.push(collection[i]);
-        }
-      }
+      _.each(collection, function (el) {
+          if(test(el) === true) {
+              result.push(el);
+          }
+      });
       return result;
   };
 
@@ -135,9 +135,9 @@
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
       var result = [];
-      for(var i = 0; i < collection.length; i++) {
-        result.push(iterator(collection[i]));
-      }
+      _.each(collection, function(el) {
+          result.push(iterator(el));
+      });
       return result;
   };
 
